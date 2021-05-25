@@ -1,0 +1,124 @@
+* {
+    font-family: monospace;
+}
+
+body{
+    margin:0;
+    background-color:#eaf7f8;
+    color : #3d3d3d;
+}
+
+ul {
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    padding:0;
+    flex-direction:column;
+    align-items:center;
+    
+}
+
+li{
+    display: flex;
+    background-color: white;
+    padding: 8px 12px;
+    width: 70vw;
+    box-sizing: border-box;
+    justify-content:space-between;
+    align-items:center;
+    margin:5px;
+    border-radius : 5px;
+    box-shadow: 0 0 16px 0 rgb(0 0 0 / 10%);
+}
+
+button{
+    border : none;
+    outline : none;
+    padding : 8px 20px;
+    box-sizing : border-box;
+    min-width : 75px;
+    cursor:pointer;
+    border-radius: 3px;
+}
+
+header {
+    padding:5px 6px;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+button:hover , button.selected {
+    background: #108291;
+    color:white;
+}
+
+img {
+    width : 36px;
+    height: 36px;
+    margin : 0 8px
+}
+
+input{
+    padding : 12px 20px;
+    outline:none;
+    width:50vw;
+    box-shadow: 0 0 16px 0 rgb(0 0 0 / 10%);
+    border:0;
+    margin:16px;
+    border-radius:3px;
+}
+
+.container {
+    display:flex;
+    justify-content:center;
+    width:100vw;
+    flex-direction:column;
+    margin-top : 1em;
+}
+
+.company-container{
+    display:flex;
+    align-items : center;
+}
+
+.task-name{
+    flex-basis:75%;
+    padding:8px 5px;
+}
+
+.task-name:focus-visible{
+    outline : none;
+    background-color : #eaf7f8;
+}
+
+.dev-name , .company-name{
+    font-size: 1.75em;
+    color:#108291;
+}
+
+.status-container {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 20%;
+}
+
+.filter-container,.input-container{
+    display: flex;
+    justify-content: center;
+}
+
+.link {
+    text-decoration : underline;
+    cursor : pointer;
+}
+
+.link-delete {
+    color:#F93154;
+    background-color:transparent;
+}
+
+.hide {
+    display : none;
+}
