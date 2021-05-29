@@ -6,50 +6,51 @@
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     </head>
 
-    <body onload="onload();">
+    <body onload="onload();" class="m-0">
 
-        <header>
-            <div class="company-container">
-                <img src="logo.svg"/>
+        <header class="p-5 flex justify-between align-center text-white">
+            <div class="company-container flex align-center">
+                <img class="w-36 h-36" src="/logo.svg"/>
                 <span class="company-name">worklist</span>
             </div>
             
             <span class="dev-name">Suban Khoja</span>
         </header>
         
-        <div class="container">
+        <div class="container flex justify-center flex-column m-top-1em">
             
-            <div class="input-container">
-                <input type="text" placeholder="Type new task here. Press enter to create." onkeyup="createNewTask(event)">
+            <div class="flex justify-center">
+                <input class="p-top-12 p-bottom-12 p-left-20 p-right-20 outline-none border-none border-radius-3 m-16" type="text" placeholder="Type new task here. Press enter to create." onkeyup="createNewTask(event)">
             </div>
 
-            <div class="filter-container">
+            <div class="filter-container flex justify-center">
                 <div class="filter-actions">
-                    <button class="btn btn-ns" onclick="applyFilter('ns')">Not Started</button>
-                    <button class="btn btn-ip" onclick="applyFilter('ip')">In Progess</button>
-                    <button class="btn btn-cp" onclick="applyFilter('cp')">Completed</button>
+                    <button class="btn btn-ns border-none outline-none p-5 border-box cursor-pointer border-radius-3" onclick="applyFilter('ns')">Not Started</button>
+                    <button class="btn btn-ip border-none outline-none p-5 border-box cursor-pointer border-radius-3" onclick="applyFilter('ip')">In Progess</button>
+                    <button class="btn btn-cp border-none outline-none p-5 border-box cursor-pointer border-radius-3" onclick="applyFilter('cp')">Completed</button>
                 </div>
             </div>
 
-            <ul class="task-container">
+            <ul class="task-container list-none flex justify-center align-center flex-column p-0">
                 
             </ul>
         </div>
 
         <template id="TASK">
-            <li class="task">
-                <span class="task-name" contenteditable="true" oninput="changeTaskName(event)"></span>
-                <div class="status-container">
-                    <button class="btn status-ns" onclick="changeStatus(event,'ns')">Not Started</button>
-                    <button class="btn status-ip" onclick="changeStatus(event,'ip')">In Progress</button>
-                    <button class="btn status-cp" onclick="changeStatus(event,'cp')">Completed</button>
+            <li class="task flex border-box justify-between align-center border-radius-3 p-5 m-5">
+                <span class="task-name p-0" contenteditable="true" oninput="changeTaskName(event)"></span>
+                <div class="status-container flex justify-between">
+                    <button class="btn status-ns border-none outline-none p-5 border-box cursor-pointer border-radius-3" onclick="changeStatus(event,'ns')">Not Started</button>
+                    <button class="btn status-ip border-none outline-none p-5 border-box cursor-pointer border-radius-3" onclick="changeStatus(event,'ip')">In Progress</button>
+                    <button class="btn status-cp border-none outline-none p-5 border-box cursor-pointer border-radius-3" onclick="changeStatus(event,'cp')">Completed</button>
                 </div>
                 <div class="task-actions">
-                    <span class="link link-delete" onclick="deleteTask(event)">Delete</span>
+                    <span class="underline cursor-pointer link-delete" onclick="deleteTask(event)">Delete</span>
                 </div>
             </li>
         </template>
-
+        <script src="constant.js"></script>
+        <script src="ui.js"></script>
         <script src="index.js"></script>
 
     </body>

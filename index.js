@@ -1,20 +1,3 @@
-const APP = 'TODO_LIST';
-const DEFAULT_STATUS = 'ns';
-const DEFAULT_FILTER = 'ns';
-
-let tasks;
-let filteredTasks;
-let currentFilter;
-
-const taskContainer = document.querySelector('ul.task-container');
-
-const resetFilterSelectionUI = () => {
-    const filters =  document.querySelectorAll('.filter-container > .filter-actions > .btn');
-    for(let i=0;i<filters.length;i++){
-        filters[i].classList.remove('selected');
-    }
-}
-
 const applyFilter = (filterName) => {
     resetFilterSelectionUI();
     currentFilter = filterName;
@@ -25,64 +8,36 @@ const applyFilter = (filterName) => {
 }
 
 const newId = () => {
-    
     let str = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let id_length = 7;
     let new_id = '';
-
     for(let i=0;i<id_length;i++){
         new_id += str[Math.floor(Math.random() * 62)];
     }
-
     return new_id;
 }
 
 const onload = () => {
-
     if(!window.localStorage.getItem(APP)){
         window.localStorage.setItem(APP , JSON.stringify([]));
     }
-
     tasks = getTasks();
     applyFilter(DEFAULT_FILTER);
-
 }
 
 const getTasks = () => {
     return JSON.parse(window.localStorage.getItem(APP));
-
-}
-
-const createTasksOnUI = (taskList) => {
-
-    taskList.forEach(task => {
-        taskContainer.appendChild(CreateATaskOnUI(task));
-    });
-
-}
-
-const CreateATaskOnUI = (task) => {
-
-    const task_ele = TASK.content.cloneNode(true);
-    task_ele.querySelector('.task').id = task.id;
-    task_ele.querySelector('.task > .task-name').textContent = task.name;
-    //task_ele.querySelector('.task > .task-name').contentEditable = "true";
-    task_ele.querySelector('.task > .status-container > .status-'+task.status).classList.add('hide');
-    return task_ele;
-
 }
 
 const createNewTask = (e) => {
     if(e.key === 'Enter'){
         const task_name = e.target.value;
         if(task_name){
-
             let new_task = {
                 id : newId(),
                 name : task_name,
                 status : DEFAULT_STATUS
             };
-
             createNewTaskOnStorage(new_task);
             if(currentFilter === DEFAULT_FILTER){
                 taskContainer.appendChild(CreateATaskOnUI(new_task));
@@ -117,7 +72,6 @@ const changeStatus = (e,status) => {
     }
     window.localStorage.setItem(APP , JSON.stringify(tasks));
     applyFilter(currentFilter);
-
 }
 
 const changeTaskName = (e) => {
